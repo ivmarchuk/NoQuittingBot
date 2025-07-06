@@ -1,39 +1,50 @@
 # QuitSmokeBot
 
-Телеграм-бот, помогающий постепенно отказаться от курения.
+A Telegram bot that helps users gradually quit smoking by managing smoking intervals and tracking progress.
 
-## Быстрый старт (локально)
+## Quick Start
 
-1. Создайте виртуальное окружение (опционально):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-   ```
-2. Установите зависимости:
+1. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-3. Получите токен у @BotFather и присвойте переменной окружения:
+
+2. **Set your bot token:**
    ```bash
-   export BOT_TOKEN="123456:ABCDEF..."
+   export BOT_TOKEN="your_telegram_bot_token"
    ```
-4. Запустите бот (из корня проекта):
+
+3. **Run the bot:**
    ```bash
-   python -m no_quitting_bot  # или python -m no_quitting_bot.entrypoints.bot_main
+   python -m no_quitting_bot
    ```
-5. Откройте Telegram, найдите вашего бота и отправьте `/start`. Бот сам задаст вопросы и покажет клавиатуру с кнопками:
-   • 🚬 Можно курить? – проверка и кнопка «Курю сейчас» при разрешении
-   • 📊 Статистика – финансы и интервал в zł
-   • ⚙️ Сброс – начать заново
-   • 💧 Вода – добавляет стакан; бот показывает счётчик за день
 
-Бот по понедельникам в 09:00 UTC присылает 📅 недельный отчёт: сколько сигарет выкурено/не выкурено, PLN потрачено/сэкономлено.
+4. **Start using:**
+   - Open Telegram and find your bot
+   - Send `/start` to begin setup
+   - Follow the interactive configuration
 
-## Команды
-| Команда     | Описание |
-|-------------|----------|
-| `/start`    | Запуск бота и интерактивная настройка |
-| `/reset`    | (альтернатива кнопке) сбросить настройки |
+## Features
 
-## Файлы базы данных
-По умолчанию бот сохраняет данные в файл `no_quitting_bot.db` в текущей директории. Можно изменить путь, установив переменную `QS_DB_FILENAME`. 
+- **Smart intervals:** Gradually increases time between cigarettes
+- **Progress tracking:** Monitor spending and savings in PLN
+- **Weekly reports:** Automatic reports every Monday at 09:00 UTC
+- **Alternative tasks:** Suggests activities when trying to smoke early
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `/start` | Initialize bot and setup |
+| `/reset` | Reset all settings |
+
+## Database
+
+Data is stored in `no_quitting_bot.db` by default. Set `QS_DB_FILENAME` environment variable to change the path.
+
+## Docker
+
+```bash
+docker build -t quitbot .
+docker run -e BOT_TOKEN="your_token" quitbot
+``` 
