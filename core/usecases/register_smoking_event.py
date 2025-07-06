@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import datetime as dt
 
-from quit_smoke_bot.core.entities.smoking_event import SmokingEvent
-from quit_smoke_bot.core.interfaces.repositories.event_repo import AbstractSmokingEventRepository
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.core.entities.smoking_event import SmokingEvent
+from no_quitting_bot.core.interfaces.repositories.event_repo import AbstractSmokingEventRepository
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
 
 # Constants
 # (фиксированный рост каждые 2 дня более не используется)

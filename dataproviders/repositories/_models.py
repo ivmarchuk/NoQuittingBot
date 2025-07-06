@@ -7,7 +7,7 @@ import datetime as dt
 from sqlalchemy import Column, Integer, Float, DateTime, Boolean, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column
 
-from quit_smoke_bot.dataproviders.db import Base
+from no_quitting_bot.dataproviders.db import Base
 
 
 class UserModel(Base):

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import datetime as dt
 
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
 
 MAX_INTERVAL_MINUTES = 12 * 60  # 12 hours
 

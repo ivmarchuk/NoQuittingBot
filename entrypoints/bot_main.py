@@ -2,7 +2,7 @@
 
 Usage:
     export BOT_TOKEN="<your_token>"
-    python -m quit_smoke_bot.entrypoints.bot_main
+    python -m no_quitting_bot.entrypoints.bot_main
 """
 
 from __future__ import annotations
@@ -28,23 +28,23 @@ from aiogram.types import (
     Message,
 )
 
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
-from quit_smoke_bot.core.interfaces.repositories.event_repo import AbstractSmokingEventRepository
-from quit_smoke_bot.dataproviders.repositories.user_repository import (
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.core.interfaces.repositories.event_repo import AbstractSmokingEventRepository
+from no_quitting_bot.dataproviders.repositories.user_repository import (
     SqlAlchemyUserRepository,
 )
-from quit_smoke_bot.dataproviders.repositories.event_repository import (
+from no_quitting_bot.dataproviders.repositories.event_repository import (
     SqlAlchemySmokingEventRepository,
 )
-from quit_smoke_bot.dataproviders.db import engine, Base
-from quit_smoke_bot.core.usecases import (
+from no_quitting_bot.dataproviders.db import engine, Base
+from no_quitting_bot.core.usecases import (
     init_user as init_user_uc,
     can_smoke_now as can_smoke_now_uc,
     register_smoking_event as register_smoke_uc,
 )
 
-from quit_smoke_bot.core.entities.user import User
-from quit_smoke_bot.utils import hub
+from no_quitting_bot.core.entities.user import User
+from no_quitting_bot.utils import hub
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
@@ -58,7 +58,7 @@ logger = logging.getLogger(__name__)
 Base.metadata.create_all(bind=engine)
 
 # Run simple migrations for new columns
-from quit_smoke_bot.dataproviders.db import run_migrations
+from no_quitting_bot.dataproviders.db import run_migrations
 
 run_migrations()
 
@@ -158,7 +158,7 @@ async def send_inactivity_pings() -> None:
 # ---------------------------------------------------------------------------
 
 async def run_adaptive_growth() -> None:
-    from quit_smoke_bot.core.usecases import adaptive_growth as adaptive_growth_uc
+    from no_quitting_bot.core.usecases import adaptive_growth as adaptive_growth_uc
     adaptive_growth_uc.execute(user_repo)
 
 
@@ -581,7 +581,7 @@ async def handle_alt_done(callback: CallbackQuery) -> None:
 
 @dp.callback_query(F.data == "UNDO")
 async def handle_undo(callback: CallbackQuery) -> None:
-    from quit_smoke_bot.core.usecases import undo_last_event as undo_uc
+    from no_quitting_bot.core.usecases import undo_last_event as undo_uc
 
     try:
         undo_uc.execute(callback.from_user.id, user_repo, event_repo)
@@ -631,8 +631,8 @@ async def cmd_reset(message: Message, state: FSMContext) -> None:
     existing = user_repo.get_by_telegram_id(message.from_user.id)
     if existing:
         # naive delete via direct session (simple for now)
-        from quit_smoke_bot.dataproviders.db import session_scope
-        from quit_smoke_bot.dataproviders.repositories._models import UserModel, SmokingEventModel
+        from no_quitting_bot.dataproviders.db import session_scope
+        from no_quitting_bot.dataproviders.repositories._models import UserModel, SmokingEventModel
         from sqlalchemy import delete
 
         with session_scope() as session:

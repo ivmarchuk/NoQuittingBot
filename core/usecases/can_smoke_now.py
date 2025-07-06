@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
 
 
 def execute(telegram_id: int, user_repo: AbstractUserRepository) -> tuple[bool, int]:

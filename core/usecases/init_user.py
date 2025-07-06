@@ -5,8 +5,8 @@ from __future__ import annotations
 import math
 from datetime import datetime, timedelta
 
-from quit_smoke_bot.core.entities.user import User
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.core.entities.user import User
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
 
 # Constants
 MIN_INTERVAL_MINUTES = 20  # floor

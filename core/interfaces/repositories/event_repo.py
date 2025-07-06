@@ -5,7 +5,7 @@ from __future__ import annotations
 import abc
 from typing import List, Protocol
 
-from quit_smoke_bot.core.entities.smoking_event import SmokingEvent
+from no_quitting_bot.core.entities.smoking_event import SmokingEvent
 
 
 class AbstractSmokingEventRepository(Protocol):

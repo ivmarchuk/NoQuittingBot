@@ -7,10 +7,10 @@ from typing import List
 
 from sqlalchemy import select
 
-from quit_smoke_bot.core.entities.user import User
-from quit_smoke_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
-from quit_smoke_bot.dataproviders.db import session_scope
-from quit_smoke_bot.dataproviders.repositories._models import UserModel
+from no_quitting_bot.core.entities.user import User
+from no_quitting_bot.core.interfaces.repositories.user_repo import AbstractUserRepository
+from no_quitting_bot.dataproviders.db import session_scope
+from no_quitting_bot.dataproviders.repositories._models import UserModel
 
 
 class SqlAlchemyUserRepository(AbstractUserRepository):

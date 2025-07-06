@@ -7,7 +7,7 @@ from typing import Optional
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from quit_smoke_bot.core.entities.user import User
+from no_quitting_bot.core.entities.user import User
 
 
 def progress_bar(current: int, total: int, length: int = 10) -> str:

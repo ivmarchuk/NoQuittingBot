@@ -5,7 +5,7 @@ from __future__ import annotations
 import abc
 from typing import Protocol, List
 
-from quit_smoke_bot.core.entities.user import User
+from no_quitting_bot.core.entities.user import User
 
 
 class AbstractUserRepository(Protocol):

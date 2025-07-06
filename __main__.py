@@ -1,6 +1,6 @@
-"""Allow `python -m quit_smoke_bot` to run the bot."""
+"""Allow `python -m no_quitting_bot` to run the bot."""
 
-from quit_smoke_bot.entrypoints.bot_main import main
+from no_quitting_bot.entrypoints.bot_main import main
 
 if __name__ == "__main__":
     main() 

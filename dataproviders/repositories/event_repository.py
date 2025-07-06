@@ -6,12 +6,12 @@ from typing import List
 
 from sqlalchemy import select, delete
 
-from quit_smoke_bot.core.entities.smoking_event import SmokingEvent
-from quit_smoke_bot.core.interfaces.repositories.event_repo import (
+from no_quitting_bot.core.entities.smoking_event import SmokingEvent
+from no_quitting_bot.core.interfaces.repositories.event_repo import (
     AbstractSmokingEventRepository,
 )
-from quit_smoke_bot.dataproviders.db import session_scope
-from quit_smoke_bot.dataproviders.repositories._models import SmokingEventModel
+from no_quitting_bot.dataproviders.db import session_scope
+from no_quitting_bot.dataproviders.repositories._models import SmokingEventModel
 
 
 class SqlAlchemySmokingEventRepository(AbstractSmokingEventRepository):

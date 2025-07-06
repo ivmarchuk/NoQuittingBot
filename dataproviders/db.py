@@ -14,7 +14,7 @@ from sqlalchemy import text
 # ---------------------------------------------------------------------------
 # Constants & Helpers
 # ---------------------------------------------------------------------------
-DB_FILENAME = os.getenv("QS_DB_FILENAME", "quit_smoke_bot.db")
+DB_FILENAME = os.getenv("QS_DB_FILENAME", "no_quitting_bot.db")
 DB_PATH = Path(DB_FILENAME).expanduser().absolute()
 
 SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_PATH}"

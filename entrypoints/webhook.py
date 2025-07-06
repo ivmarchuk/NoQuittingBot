@@ -11,7 +11,7 @@ from aiohttp import web
 from aiogram import Bot, Dispatcher
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 
-from quit_smoke_bot.entrypoints import bot_main  # re-use configured dispatcher & scheduler
+from no_quitting_bot.entrypoints import bot_main  # re-use configured dispatcher & scheduler
 
 logger = logging.getLogger(__name__)
 
