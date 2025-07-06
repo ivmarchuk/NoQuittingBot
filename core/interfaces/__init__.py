@@ -1,0 +1,1 @@
+"""Interface abstractions for Quit Smoke Bot.""" 

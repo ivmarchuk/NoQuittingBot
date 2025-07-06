@@ -1,0 +1,1 @@
+"""Quit Smoke Bot package.""" 
